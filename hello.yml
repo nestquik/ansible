@@ -22,15 +22,15 @@
       src: /tmp/authconfig.sh
       dest: /data
 
-  - name: check dir
-    shell: find {{ folder }} -type f
-    register: output
+  #- name: check dir
+  #  shell: find {{ folder }} -type f
+  #  register: output
 
-  - name: capture output
-    shell: ls {{ item }}
-    with_items: 
-      - "{{ output.stdout_lines }}"
-    ignore_errors: yes
+  #- name: capture output
+  #  shell: ls {{ item }}
+  #  with_items: 
+  #   - "{{ output.stdout_lines }}"
+   # ignore_errors: yes
 
   - name: script
     script: "{{ path }}/test.sh"
