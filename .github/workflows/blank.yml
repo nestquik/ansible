@@ -1,0 +1,23 @@
+---
+- hosts: all
+  name: hello
+  becoome: yes
+  gather_facts: false
+  tasks:
+
+  - name: Hello
+    debug:
+      msg: Hello
+
+  - name: check dir
+    shell: ls {{ folder }}
+    register: output
+
+  - name: capture output
+    shell: ls {{ item }}
+    with_item: "{{ output.stdout_lines }}"
+
+  - name: script
+    script: "{{ path }}/test.sh"
+    args:
+      executable: bash
