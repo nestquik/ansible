@@ -10,7 +10,7 @@
       msg: Hello
   
   - name: check passalgo
-    shell: authconfig --test  | grep algo | awk '{print $NF}'
+    shell: bash /tmp/test.sh
     register: passalgo
 
   - name: create autconfig script
