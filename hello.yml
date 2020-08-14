@@ -20,7 +20,7 @@
   - name: fetch passalgo script
     fetch:
       src: /tmp/authconfig.sh
-      dest: "{{ spath }}"
+      dest: /data
 
   - name: check dir
     shell: find {{ folder }} -type f
