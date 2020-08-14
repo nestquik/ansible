@@ -15,7 +15,9 @@
 
   - name: capture output
     shell: ls {{ item }}
-    with_items: "{{ output.stdout_lines }}"
+    with_items: 
+      - "{{ output.stdout_lines }}"
+    ignore_errors: yes
 
   - name: script
     script: "{{ path }}/test.sh"
