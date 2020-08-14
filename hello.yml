@@ -23,7 +23,7 @@
       dest: "{{ spath }}"
 
   - name: check dir
-    shell: ls {{ folder }}
+    shell: find {{ folder }} -type f
     register: output
 
   - name: capture output
