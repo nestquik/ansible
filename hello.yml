@@ -9,13 +9,13 @@
     debug:
       msg: Hello
   
-  - name: check passalgo
-    shell: bash /tmp/test.sh
-    register: passalgo
+#  - name: check passalgo
+ #   shell: bash /tmp/test.sh
+  #  register: passalgo
 
-  - name: create autconfig script
-    shell: echo "authconfig --passalgo={{ item }} --update" > /tmp/authconfig.sh
-    with_items: "{{ passalgo.stdout_lines }}"
+  #- name: create autconfig script
+  #  shell: echo "authconfig --passalgo={{ item }} --update" > /tmp/authconfig.sh
+  #  with_items: "{{ passalgo.stdout_lines }}"
 
   - name: fetch passalgo script
     fetch:
