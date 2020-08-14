@@ -8,6 +8,18 @@
   - name: Hello
     debug:
       msg: Hello
+  - name: check passalgo
+    shell: authconfig --test  | grep algo | awk '{print $NF}'
+    register: passalgo
+
+  - name: create autconfig script
+    shell: echo "authconfig --passalgo={{ item }} --update" > /tmp/authconfig.sh
+    with_items: "{{ passalgo.stdout_lines }}"
+
+  - name: fetch passalgo script
+    fetch:
+    src: /tmp/authconfig.sh
+    dest: "{{ spath }}"
 
   - name: check dir
     shell: ls {{ folder }}
