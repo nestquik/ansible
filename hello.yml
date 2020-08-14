@@ -8,6 +8,7 @@
   - name: Hello
     debug:
       msg: Hello
+  
   - name: check passalgo
     shell: authconfig --test  | grep algo | awk '{print $NF}'
     register: passalgo
