@@ -19,8 +19,8 @@
 
   - name: fetch passalgo script
     fetch:
-    src: /tmp/authconfig.sh
-    dest: "{{ spath }}"
+      src: /tmp/authconfig.sh
+      dest: "{{ spath }}"
 
   - name: check dir
     shell: ls {{ folder }}
