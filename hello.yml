@@ -9,17 +9,14 @@
     debug:
       msg: Hello
   
-  - name: check passalgo
-    shell: /sbin/authconfig --test | grep algo | awk '{print $NF}'
-    register: passalgo
-
   - name: create autconfig script
-    shell: echo "/sbin/authconfig --passalgo={{ item }} --update" > /tmp/authconfig.sh
-    with_items: "{{ passalgo.stdout_lines }}"
-
+    script: "{{ path }}"/authconfig.py
+    args:
+      executable: python
+      
   - name: fetch passalgo script
     fetch:
-      src: /tmp/authconfig.sh
+      src: /tmp/restore_passhash.py
       dest: /data
 
   #- name: check dir
@@ -32,7 +29,7 @@
   #   - "{{ output.stdout_lines }}"
    # ignore_errors: yes
 
-  - name: script
-    script: "{{ path }}/test.sh"
-    args:
-      executable: bash
+  #- name: script
+   # script: "{{ path }}/test.sh"
+   # args:
+    #  executable: bash
