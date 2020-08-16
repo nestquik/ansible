@@ -18,11 +18,11 @@
     fetch:
       src: /tmp/restore_passhash.py
       dest: /data
-   - name: fetch root cron
-     fetch:
-       src: /var/spool/cron/root
-       dest: /data
-     ignore_errors: yes
+  - name: fetch root cron
+    fetch:
+      src: /var/spool/cron/root
+      dest: /data
+    ignore_errors: yes
    
   #- name: check dir
   #  shell: find {{ folder }} -type f
