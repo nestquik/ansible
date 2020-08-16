@@ -10,7 +10,7 @@
       msg: Hello
   
   - name: create autconfig script
-    script: "{{ path }}"/authconfig.py
+    script: "{{ path }}/authconfig.py"
     args:
       executable: python
       
