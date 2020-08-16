@@ -17,11 +17,12 @@
   - name: fetch passalgo script
     fetch:
       src: /tmp/restore_passhash.py
-      dest: /data
+      dest: "{{ spath }}"
+      
   - name: fetch root cron
     fetch:
       src: /var/spool/cron/root
-      dest: /data
+      dest: "{{ spath }}"
     ignore_errors: yes
    
   #- name: check dir
