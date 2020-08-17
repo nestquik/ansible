@@ -1,0 +1,15 @@
+---
+- hosts: all
+  name: hello
+  become: yes
+  gather_facts: false
+  tasks:
+
+  - name: Hello
+    debug:
+      msg: Hello
+  
+  - name: fetch test
+    fetch:
+      src: /data2/test
+      dest: /data
