@@ -11,5 +11,5 @@
   
   - name: fetch test
     fetch:
-      src: /data2/test
+      src: /data2/test/test.log
       dest: /data1
